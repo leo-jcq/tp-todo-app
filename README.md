@@ -49,7 +49,10 @@ Nous allons donc implémenter étapes par étape :
 
 - Formulaire pour créer une tâche
 - Stockage et affichage des tâches
+- Suppression d'une tâche
 - Ajout d'un système de complétion de tâche
+
+À chaque fin de section, vous trouverez un lien vers la solution si vous bloquez trop longtemps.
 
 ## Création du formulaire
 
@@ -70,12 +73,14 @@ Ensuite, de retour dans la balise `<script>`, créez une ref pour contenir les t
 Créez une fonction `addTodo` qui ajoute une nouvelle tâche à la liste (si le champ de saisie n'est pas vide).  
 Nous représenterons une tâche par un objet avec les propriétés suivantes pour l'instant :
 
-- `id` : un identifiant unique
+- `id` : un identifiant unique (pour le générer utilisez [cet exemple](https://github.com/leo-jcq/tp-todo-app/blob/solutions/id-example.vue))
 - `text` : le texte de la tâche
 
 > N'oubliez pas de réinitialiser la valeur du champ de saisie après l'ajout.
 
 Enfin, pour que la fonction `addTodo` soit appelée lors de la soumission du formulaire, ajoutez un écouteur d'événement `submit` sur le formulaire (n'oubliez pas d'empêcher le comportement par défaut du formulaire).
+
+Solution : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/form.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/form.vue).
 
 ## Affichage des tâches
 
@@ -86,6 +91,8 @@ Pour afficher les tâches, créez une balise `<ul>` dans le template, et utilise
 Vous pouvez maintenant tester l'application en ajoutant des tâches via le formulaire.
 
 Pour finir, ajoutez un ajoutez un `<li>` qui s'affiche uniquement lorsque la liste des tâches est vide, avec le texte "Aucune tâche à afficher" (utilisez l'attribut `v-if`).
+
+Solution : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/todo-display.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/todo-display.vue).
 
 ## Suppresion des tâches
 
@@ -98,6 +105,8 @@ Ensuite, créez une fonction `removeTodo` qui prend en paramètre l'identifiant 
 > Pour cela, on peut utiliser la méthode `filter` de la classe `Array` : [https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter).
 
 Enfin, ajoutez un écouteur d'événement `click` sur le bouton "Supprimer" pour appeler la fonction `removeTodo` avec l'identifiant de la tâche correspondante.
+
+Solution : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/remove-todo.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/remove-todo.vue)
 
 ## Composant Todo
 
@@ -113,10 +122,8 @@ Dans la balise `<script>`, déclarez un prop `todo` avec la fonction `defineProp
 
 Retournez dans [App.vue](./src/App.vue) et importez le composant `Todo` dans la balise `<script>`.
 
-```vue
-<script setup>
+```js
 import Todo from "./components/Todo.vue";
-</script>
 ```
 
 Puis, utilisez ce composant dans le template à la place de l'élément `<li>`, en lui passant la tâche en prop.
@@ -134,6 +141,11 @@ Retournez dans [App.vue](./src/App.vue) et ajouter un écouteur d'événement `@
 > N'appelez pas la fonction directement, passez-la simplement comme référence.
 
 Vérifiez que tout fonctionne comme avant (ajout, suppression, ...), mais avec un code mieux organisé !
+
+Solutions :
+
+- Composant App : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/component-App.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/component-App.vue)
+- Composant Todo : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/component-Todo.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/component-Todo.vue)
 
 ## Bonus : Marquer une tâche comme complétée
 
@@ -170,9 +182,14 @@ Créez une propriété calculée `filteredTodos` qui retourne la liste des tâch
 
 Enfin, utilisez cette propriété calculée `filteredTodos` dans le template pour afficher les tâches au lieu de la liste complète des tâches.
 
-Merci d'avoir suivi ce TP jusqu'au bout !
+Solutions :
+
+- Composant App : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/done-App.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/done-App.vue)
+- Composant Todo : [https://github.com/leo-jcq/tp-todo-app/blob/solutions/dont-Todo.vue](https://github.com/leo-jcq/tp-todo-app/blob/solutions/dont-Todo.vue)
 
 ## Pour aller plus loin
+
+Merci d'avoir suivi ce TP jusqu'au bout !
 
 Voici quelques idées pour aller plus loin avec cette application :
 

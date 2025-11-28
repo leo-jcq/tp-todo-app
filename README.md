@@ -52,6 +52,8 @@ Nous allons donc implémenter étapes par étape :
 - Suppression d'une tâche
 - Ajout d'un système de complétion de tâche
 
+Vous pouvez vous aider du cours de la diapo : [presentation.pdf](./presentation.pdf).
+
 À chaque fin de section, vous trouverez un lien vers la solution si vous bloquez trop longtemps.
 
 ## Création du formulaire

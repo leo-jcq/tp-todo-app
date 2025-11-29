@@ -120,7 +120,7 @@ Initialisez le composant avec les balises `<script setup>` et `<template>`.
 
 Déplacez le code HTML représentant une tâche (l'élément `<li>`) dans le template du composant `Todo` (pensez à retirer la directive `v-for` et l'attribut `:key`).
 
-Dans la balise `<script>`, déclarez un prop `todo` avec la fonction `defineProps` pour recevoir les données de la tâche.
+Dans la balise `<script>`, déclarez un prop `todo` de type `Object` (ne pas oublier de le mettre obligatoire) avec la fonction `defineProps` pour recevoir les données de la tâche.
 
 Retournez dans [App.vue](./src/App.vue) et importez le composant `Todo` dans la balise `<script>`.
 

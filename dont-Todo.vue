@@ -1,5 +1,10 @@
 <script setup>
-defineProps(['todo']);
+defineProps({
+    todo: {
+        type: Object,
+        required: true
+    }
+});
 
 defineEmits(['remove', 'done']);
 </script>

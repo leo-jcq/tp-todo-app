@@ -68,7 +68,7 @@ Pour lier cette ref au champ de saisie, utilisez la directive `v-model` sur l'é
 
 > Nous pourrions utiliser les attributs `value` et `@input` pour faire cette liaison, mais `v-model` est plus simple et concis.
 
-Ensuite, de retour dans la balise `<script>`, créez une ref pour contenir les tâches.
+Ensuite, de retour dans la balise `<script>`, créez une ref pour contenir la liste des tâches (initialisée à un tableau vide) nommée `todos`.
 
 > Ici, nous n'utilisons pas l'API `reactive` malgrès que l'on stock une liste d'éléments car nous aurons besoin de remplacer cette liste par une nouvelle liste lors de la suppression d'une tâche.
 
@@ -120,7 +120,7 @@ Initialisez le composant avec les balises `<script setup>` et `<template>`.
 
 Déplacez le code HTML représentant une tâche (l'élément `<li>`) dans le template du composant `Todo` (pensez à retirer la directive `v-for` et l'attribut `:key`).
 
-Dans la balise `<script>`, déclarez un prop `todo` de type `Object` (ne pas oublier de le mettre obligatoire) avec la fonction `defineProps` pour recevoir les données de la tâche.
+Dans la balise `<script>`, déclarez un prop `todo` avec la fonction `defineProps`. Ce props doit être de type `Object` et il doit êtreobligatoire.
 
 Retournez dans [App.vue](./src/App.vue) et importez le composant `Todo` dans la balise `<script>`.
 
@@ -128,7 +128,7 @@ Retournez dans [App.vue](./src/App.vue) et importez le composant `Todo` dans la 
 import Todo from "./components/Todo.vue";
 ```
 
-Puis, utilisez ce composant dans le template à la place de l'élément `<li>`, en lui passant la tâche en prop.
+Puis, utilisez ce composant dans le template à la place de l'élément `<li>`, en lui passant la tâche en prop (n'oubliez pas de remttre le `v-for` et le `:key` ainsi que de passer la tâche en props).
 
 Il nous faut maintenant gérer la suppression des tâches depuis le composant `Todo`.
 
